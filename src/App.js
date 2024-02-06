@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import axios from "axios"
+//import { useEffect } from "react";
 import './App.css';
+import Nav from "./Nav";
+import Main from "./Main";
+import Data from "./Data";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Learn from "./Learn";
 
 function App() {
+  
   return (
+   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+       <Nav></Nav>
+      
+   <section>
+       <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Main/>} exact/>
+            <Route path="/data/:id" element={<Data/>} exact/>
+            <Route path="/learn" element={<Learn/>} exact/>
+         
+         </Routes>
+       </BrowserRouter>
+
+   </section>
+      
     </div>
+  
+    
   );
 }
 
